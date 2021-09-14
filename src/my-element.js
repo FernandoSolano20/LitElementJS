@@ -1,3 +1,4 @@
+// @ts-check
 /**
  * @license
  * Copyright (c) 2019 The Polymer Project Authors. All rights reserved.
@@ -21,6 +22,12 @@ import {LitElement, html, css} from 'lit-element';
  * @csspart button - The button
  */
 export class MyElement extends LitElement {
+
+  /**
+   * @function styles get the styles of web component
+   * @memberof MyElement
+   * @static
+   */
   static get styles() {
     return css`
       :host {
@@ -32,6 +39,12 @@ export class MyElement extends LitElement {
     `;
   }
 
+  /**
+   * @function properties of current web component
+   * @memberof MyElement
+   * @returns {Object}
+   * @static
+   */
   static get properties() {
     return {
       /**
@@ -46,12 +59,20 @@ export class MyElement extends LitElement {
     };
   }
 
+  /**
+   * Constructor of My Element
+   */
   constructor() {
     super();
     this.name = 'World';
     this.count = 0;
   }
 
+  /**
+   * Paint web component
+   * @returns Html TemplateResult
+   * @public
+   */
   render() {
     return html`
       <h1>Hello, ${this.name}!</h1>
@@ -62,9 +83,22 @@ export class MyElement extends LitElement {
     `;
   }
 
+  /**
+   * Click event attach to button
+   * @returns void
+   * @private
+   */
   _onClick() {
     this.count++;
   }
 }
 
 window.customElements.define('my-element', MyElement);
+
+/**
+ * Bed name
+ * @type {string}
+ */
+const bed = "3";
+
+console.log(bed);
