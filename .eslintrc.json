@@ -1,19 +1,25 @@
 {
   "extends": [
-    "eslint:recommended"
+    "airbnb-base"
   ],
   "env": {
     "browser": true,
-    "mocha": true
+    "mocha": true,
+    "es6": true
   },
   "globals": {
     "chai": "readonly"
   },
   "parser": "babel-eslint",
   "parserOptions": {
+    "ecmaVersion": 2017,
     "sourceType": "module"
   },
   "rules": {
-    "no-unexpected-multiline": "off"
+    "no-unexpected-multiline": "off",
+    "curly": ["error", "all"],
+    "max-len": ["error", { "code": 120 }],
+    "strict": [2, "function"],
+    "linebreak-style": ["error", "windows"]
   }
 }

@@ -1,4 +1,3 @@
-// @ts-check
 /**
  * @license
  * Copyright (c) 2019 The Polymer Project Authors. All rights reserved.
@@ -13,7 +12,7 @@
  * http://polymer.github.io/PATENTS.txt
  */
 
-import {LitElement, html, css} from 'lit-element';
+import { LitElement, html, css } from 'lit-element';
 
 /**
  * An example element.
@@ -21,8 +20,8 @@ import {LitElement, html, css} from 'lit-element';
  * @slot - This element has a slot
  * @csspart button - The button
  */
-export class MyElement extends LitElement {
 
+class MyElement extends LitElement {
   /**
    * @function styles get the styles of web component
    * @memberof MyElement
@@ -50,12 +49,12 @@ export class MyElement extends LitElement {
       /**
        * The name to say "Hello" to.
        */
-      name: {type: String},
+      name: { type: String },
 
       /**
        * The number of times the button has been clicked.
        */
-      count: {type: Number},
+      count: { type: Number },
     };
   }
 
@@ -76,7 +75,7 @@ export class MyElement extends LitElement {
   render() {
     return html`
       <h1>Hello, ${this.name}!</h1>
-      <button @click=${this._onClick} part="button">
+      <button @click=${this.onClick} part="button">
         Click Count: ${this.count}
       </button>
       <slot></slot>
@@ -88,17 +87,29 @@ export class MyElement extends LitElement {
    * @returns void
    * @private
    */
-  _onClick() {
-    this.count++;
+  onClick() {
+    this.count += 1;
   }
 }
 
 window.customElements.define('my-element', MyElement);
 
+export default MyElement;
+
 /**
  * Bed name
+ *
  * @type {string}
  */
-const bed = "3";
+const bed = '3';
 
-console.log(bed);
+/**
+ * Show number of beds
+ * @param {string} bedNumber number of beds
+ * @public
+ */
+function showBed(bedNumber) {
+  console.log(bedNumber);
+}
+
+showBed(bed);
